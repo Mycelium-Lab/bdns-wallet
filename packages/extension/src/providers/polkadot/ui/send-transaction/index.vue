@@ -126,6 +126,11 @@ import { ProviderName } from "@/types/provider";
 import PublicKeyRing from "@/libs/keyring/public-keyring";
 import { polkadotEncodeAddress } from "@enkryptcom/utils";
 import { GenericNameResolver, CoinType } from "@/libs/name-resolver";
+import { DOMAIN_QUERY } from "@/apolloClient/graphql";
+import { useQuery, provideApolloClient } from "@vue/apollo-composable";
+import { apolloClient } from "@/apolloClient";
+
+provideApolloClient(apolloClient);
 
 const props = defineProps({
   network: {
@@ -312,6 +317,22 @@ const inputAddressFrom = (text: string) => {
 };
 
 const inputAddressTo = (text: string) => {
+  addressTo.value = text;
+  const { result, loading, error } = useQuery(
+    DOMAIN_QUERY,
+    {
+      name: text,
+    },
+    {
+      fetchPolicy: "cache-and-network",
+    }
+  );
+  watch([result, error], ([newResult, newError]) => {
+    if (newResult.domains.length && !newError) {
+      addressTo.value = newResult.domains[0].resolvedAddress.id;
+      text = newResult.domains[0].resolvedAddress.id;
+    }
+  });
   const debounceResolve = debounce(() => {
     nameResolver
       .resolveName(text, [props.network.name as CoinType, "DOT", "KSM"])

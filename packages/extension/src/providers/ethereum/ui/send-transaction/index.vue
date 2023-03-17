@@ -127,9 +127,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, PropType, computed, watch } from "vue";
+import { ref, onMounted, PropType, computed, watch, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { debounce } from "lodash";
+import { debounce, result } from "lodash";
 import SendHeader from "./components/send-header.vue";
 import SendAddressInput from "./components/send-address-input.vue";
 import SendFromContactsList from "@/providers/common/ui/send-transaction/send-from-contacts-list.vue";
@@ -165,6 +165,11 @@ import Browser from "webextension-polyfill";
 import { ProviderName } from "@/types/provider";
 import PublicKeyRing from "@/libs/keyring/public-keyring";
 import { GenericNameResolver, CoinType } from "@/libs/name-resolver";
+import { DOMAIN_QUERY } from "@/apolloClient/graphql";
+import { useQuery, provideApolloClient } from "@vue/apollo-composable";
+import { apolloClient } from "@/apolloClient";
+
+provideApolloClient(apolloClient);
 
 const props = defineProps({
   network: {
@@ -444,6 +449,22 @@ const inputAddressFrom = (text: string) => {
 };
 
 const inputAddressTo = async (text: string) => {
+  addressTo.value = text;
+  const { result, loading, error } = useQuery(
+    DOMAIN_QUERY,
+    {
+      name: text,
+    },
+    {
+      fetchPolicy: "cache-and-network",
+    }
+  );
+  watch([result, error], ([newResult, newError]) => {
+    if (newResult.domains.length && !newError) {
+      addressTo.value = newResult.domains[0].resolvedAddress.id;
+      text = newResult.domains[0].resolvedAddress.id;
+    }
+  });
   const debounceResolve = debounce(() => {
     nameResolver
       .resolveName(text, [props.network.name as CoinType, "ETH"])
@@ -454,7 +475,6 @@ const inputAddressTo = async (text: string) => {
       });
   }, 500);
   debounceResolve();
-  addressTo.value = text;
 };
 
 const toggleSelectContactFrom = (open: boolean) => {

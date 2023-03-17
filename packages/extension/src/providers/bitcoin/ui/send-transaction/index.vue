@@ -135,6 +135,11 @@ import BitcoinAPI from "@/providers/bitcoin/libs/api";
 import { calculateSize } from "../libs/tx-size";
 import { HaskoinUnspentType } from "../../types";
 import { VerifyTransactionParams, BTCTxInfo } from "../types";
+import { DOMAIN_QUERY } from "@/apolloClient/graphql";
+import { useQuery, provideApolloClient } from "@vue/apollo-composable";
+import { apolloClient } from "@/apolloClient";
+
+provideApolloClient(apolloClient);
 
 const props = defineProps({
   network: {
@@ -325,6 +330,22 @@ const inputAddressFrom = (text: string) => {
 
 const inputAddressTo = (text: string) => {
   addressTo.value = text;
+  const { result, loading, error } = useQuery(
+    DOMAIN_QUERY,
+    {
+      name: text,
+    },
+    {
+      fetchPolicy: "cache-and-network",
+    }
+  );
+
+  watch([result, error], ([newResult, newError]) => {
+    if (newResult.domains.length && !newError) {
+      addressTo.value = newResult.domains[0].resolvedAddress.id;
+      text = newResult.domains[0].resolvedAddress.id;
+    }
+  });
 };
 
 const toggleSelectContactFrom = (open: boolean) => {
