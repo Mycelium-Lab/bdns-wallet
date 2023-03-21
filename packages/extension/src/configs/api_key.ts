@@ -1,0 +1,1 @@
+export const INFURA_API_KEY = "YOUR_API_KEY_HERE";
