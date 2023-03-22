@@ -127,9 +127,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, PropType, computed, watch, watchEffect } from "vue";
+import { ref, onMounted, PropType, computed, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { debounce, result } from "lodash";
+import { debounce } from "lodash";
 import SendHeader from "./components/send-header.vue";
 import SendAddressInput from "./components/send-address-input.vue";
 import SendFromContactsList from "@/providers/common/ui/send-transaction/send-from-contacts-list.vue";
