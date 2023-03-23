@@ -1,9 +1,9 @@
 {
-  "author": "https://www.enkrypt.com",
-  "homepage_url": "https://www.enkrypt.com",
+  "author": "https://bdns.app/#en",
+  "homepage_url": "https://bdns.app/#en",
   "version": "",
-  "name": "Enkrypt: Ethereum, Polkadot & Canto Wallet",
-  "short_name": "Enkrypt",
+  "name": "BDNS Wallet: Ethereum, Polkadot & Canto Wallet",
+  "short_name": "BDNS Wallet",
   "permissions": [
     "storage",
     "unlimitedStorage",
@@ -37,9 +37,6 @@
   ],
   "description": "Everything in the blockchain made easy",
   "icons": {
-    "16": "assets/img/icons/icon16.png",
-    "32": "assets/img/icons/icon32.png",
-    "64": "assets/img/icons/icon64.png",
-    "192": "assets/img/icons/icon192.png"
+    "192": "assets/img/icons/bdns-192.png"
   }
 }

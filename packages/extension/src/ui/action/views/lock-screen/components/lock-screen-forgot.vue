@@ -4,7 +4,7 @@
       <close-icon />
     </a>
     <h2>Forgot password?</h2>
-    <p>Enkrypt cannot recover your password for you.</p>
+    <p>BDNS cannot recover your password for you.</p>
     <p>
       If you're having trouble unlocking your account, you will need to reset
       your wallet.

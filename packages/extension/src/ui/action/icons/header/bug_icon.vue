@@ -1,4 +1,4 @@
-<template>
+<!---<template>
   <svg
     width="16"
     height="16"
@@ -18,4 +18,4 @@ svg {
   display: inline-block;
   vertical-align: baseline;
 }
-</style>
+</style>-->

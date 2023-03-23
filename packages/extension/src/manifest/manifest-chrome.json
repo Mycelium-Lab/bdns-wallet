@@ -2,12 +2,9 @@
   "manifest_version": 3,
   "action": {
     "default_icon": {
-      "16": "assets/img/icons/icon16.png",
-      "32": "assets/img/icons/icon32.png",
-      "64": "assets/img/icons/icon64.png",
-      "192": "assets/img/icons/icon192.png"
+      "192": "assets/img/icons/bdns-192.png"
     },
-    "default_title": "Enkrypt",
+    "default_title": "BDNS Wallet",
     "default_popup": "action.html"
   },
   "background": {

@@ -6,8 +6,8 @@
     >
       <h3>Your safety and security is our #1 priority</h3>
       <p>
-        We don't support keystore file and private key imports in Enkrypt, as
-        they are highly unsafe.
+        We don't support keystore file and private key imports in BDNS Wallet,
+        as they are highly unsafe.
       </p>
       <p>
         (Note that keystore file and private key are still available methods of
@@ -15,14 +15,14 @@
         offline)
       </p>
       <p>
-        For maximum security its best to create a new wallet directly in
-        Enkrypt, same as if you just got a new hardware wallet. That way you can
+        For maximum security its best to create a new wallet directly in BDNS
+        Wallet, same as if you just got a new hardware wallet. That way you can
         be sure your keys never leave your device.
       </p>
       <p>
-        If you want to access funds in one of your existing wallets via Enkrypt,
-        the most secure way is to create a new wallet and transfer your ETH and
-        Tokens to the new wallet.
+        If you want to access funds in one of your existing wallets via BDNS
+        Wallet, the most secure way is to create a new wallet and transfer your
+        ETH and Tokens to the new wallet.
       </p>
       <p>Using your existing private key considerably reduces your security.</p>
     </custom-scrollbar>

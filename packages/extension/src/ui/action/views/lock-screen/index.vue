@@ -154,10 +154,9 @@ const closeLockedAction = () => {
     justify-content: center;
   }
   &__wrap {
-    width: 320px;
-    height: auto;
-    box-sizing: border-box;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     h4 {
       font-style: normal;
       font-weight: 700;

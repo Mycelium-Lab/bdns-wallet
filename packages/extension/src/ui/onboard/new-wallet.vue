@@ -3,13 +3,13 @@
     <logo-big class="new-wallet__logo" />
     <h3>Multiple Chains.<br />One Wallet.</h3>
     <p>
-      Enkrypt is a wallet that gives you easy access to all things crypto and
-      web3.
+      BDNS Wallet is a wallet that gives you easy access to all things crypto
+      and web3.
     </p>
     <p>
       Switch accounts and chains with 1 click.<br />
-      Enkrypt currently supports the Ethereum and Polkadot ecosystems with more
-      chains on the way!
+      BDNS Wallet currently supports the Ethereum and Polkadot ecosystems with
+      more chains on the way!
     </p>
 
     <div class="new-wallet__buttons">
@@ -55,7 +55,7 @@ const restoreAction = () => {
     line-height: 40px;
     letter-spacing: 0.25px;
     color: @primaryLabel;
-    margin: 0 0 16px 0;
+    margin: 16px 0;
   }
 
   p {

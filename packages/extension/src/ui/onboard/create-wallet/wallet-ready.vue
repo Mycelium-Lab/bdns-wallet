@@ -1,9 +1,9 @@
 <template>
   <div class="wallet-ready">
-    <logo-big class="wallet-ready__logo" />
+    <!---<logo-big class="wallet-ready__logo" />-->
     <h3>Your wallet is ready</h3>
 
-    <div class="wallet-ready__social">
+    <!--<div class="wallet-ready__social">
       <h4>Follow us</h4>
       <div class="wallet-ready__social-wrap">
         <a href="https://github.com/myetherwallet" target="_blank">
@@ -19,7 +19,7 @@
           <twitter-icon />
         </a>
       </div>
-    </div>
+    </div>-->
 
     <base-button title="Finish" :click="finishAction" />
   </div>

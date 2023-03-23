@@ -15,8 +15,8 @@
     />
     <div class="settings__label">
       <p>
-        Pause Enkrypt interactions with Ethereum DApps if you are using other
-        web3 extensions
+        Pause BDNS Wallet interactions with Ethereum DApps if you are using
+        other web3 extensions
       </p>
     </div>
 
