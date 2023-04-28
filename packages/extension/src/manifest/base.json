@@ -2,7 +2,7 @@
   "author": "https://bdns.app/#en",
   "homepage_url": "https://bdns.app/#en",
   "version": "",
-  "name": "BDNS Wallet: Ethereum, Polkadot & Canto Wallet",
+  "name": "BDNS Wallet",
   "short_name": "BDNS Wallet",
   "permissions": [
     "storage",
