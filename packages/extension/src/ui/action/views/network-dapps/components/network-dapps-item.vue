@@ -56,7 +56,7 @@ const openLink = () => {
     img {
       width: 48px;
       height: 48px;
-      border-radius: 15px;
+      //border-radius: 15px;
       display: block;
       margin-bottom: 12px;
     }

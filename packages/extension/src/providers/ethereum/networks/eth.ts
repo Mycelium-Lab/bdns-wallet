@@ -4,6 +4,7 @@ import assetsInfoHandler from "@/providers/ethereum/libs/assets-handlers/assetin
 import mewNFTHandler from "@/libs/nft-handlers/mew";
 import { EtherscanActivity } from "../libs/activity-handlers";
 import wrapActivityHandler from "@/libs/activity-state/wrap-activity-handler";
+import { INFURA_API_KEY } from "@/configs/api_key";
 
 const ethOptions: EvmNetworkOptions = {
   name: NetworkNames.Ethereum,
@@ -15,7 +16,7 @@ const ethOptions: EvmNetworkOptions = {
   isTestNetwork: false,
   currencyName: "ETH",
   currencyNameLong: "Ethereum",
-  node: "wss://nodes.mewapi.io/ws/eth",
+  node: `wss://mainnet.infura.io/ws/v3/${INFURA_API_KEY}`,
   icon: require("./icons/eth.svg"),
   gradient: "linear-gradient(180deg, #C549FF 0%, #684CFF 100%)",
   coingeckoID: "ethereum",
