@@ -4,15 +4,15 @@
 
     <div class="settings__block">
       <settings-button title="General" @click="$emit('action:general')" />
-      <settings-button
+      <!--<settings-button
         title="Contact support"
         :is-link="true"
         @click="contactSupport"
-      />
+      />-->
     </div>
 
     <div class="settings__block">
-      <settings-button
+      <!--<settings-button
         title="Bug bounty program"
         :is-link="true"
         @click="bugAction"
@@ -21,7 +21,7 @@
         title="Privacy and terms"
         :is-link="true"
         @click="privacyAction"
-      />
+      />-->
       <settings-button title="About" @click="$emit('action:about')" />
     </div>
 
@@ -34,10 +34,10 @@
       />
     </div>
 
-    <div class="settings__copyright">
+    <!--<div class="settings__copyright">
       <p>Version {{ version }}</p>
       <p>© 2022 by MyEtherWallet Inc.</p>
-    </div>
+    </div>-->
 
     <modal-sign
       v-if="isOpenSign"

@@ -10,11 +10,6 @@
         as they are highly unsafe.
       </p>
       <p>
-        (Note that keystore file and private key are still available methods of
-        access on MyEtherWallet.com, but are not recommended unless using MEW
-        offline)
-      </p>
-      <p>
         For maximum security its best to create a new wallet directly in BDNS
         Wallet, same as if you just got a new hardware wallet. That way you can
         be sure your keys never leave your device.

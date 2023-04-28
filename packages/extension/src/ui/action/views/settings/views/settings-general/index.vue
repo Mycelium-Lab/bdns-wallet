@@ -37,7 +37,7 @@
     ></base-select> -->
 
     <!-- <div class="settings__label">
-      <p>Set the idle time in minutes before Enkrypt will become locked.</p>
+      <p>Set the idle time in minutes before BDNS Wallet will become locked.</p>
     </div> -->
   </div>
 </template>
