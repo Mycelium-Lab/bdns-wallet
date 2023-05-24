@@ -37,7 +37,7 @@
     />
 
     <p class="lock-screen-forgot__info">
-      Still need help? <a href="mailto:support@enkrypt.com">Contact support</a>
+      Still need help? <a href="mailto:contact@bdns.app">Contact support</a>
     </p>
   </div>
 </template>

@@ -88,13 +88,15 @@ const privacyAction = () => {
   );
 };
 
+/*
 const contactSupport = () => {
   window.open(
-    "https://www.enkrypt.com/?ref=enkrypt_help",
+    "https://bdns.app/#en",
     "_blank",
     "noopener"
   );
 };
+*/
 
 const toggleSign = () => {
   isOpenSign.value = !isOpenSign.value;

@@ -24,10 +24,9 @@ export class CustomEvmNetwork extends EvmNetwork {
       icon: require("../networks/icons/eth.svg"),
       gradient: "linear-gradient(180deg, #C549FF 0%, #684CFF 100%)",
       activityHandler: wrapActivityHandler(() => Promise.resolve([])),
-      blockExplorerAddr:
-        options.blockExplorerAddr ?? "https://www.enkrypt.com/",
-      blockExplorerTX: options.blockExplorerTX ?? "https://www.enkrypt.com/",
-      homePage: "https://www.enkrypt.com/",
+      blockExplorerAddr: options.blockExplorerAddr ?? "https://bdns.app/#en/",
+      blockExplorerTX: options.blockExplorerTX ?? "https://bdns.app/#en/",
+      homePage: "https://bdns.app/#en/",
       isTestNetwork: false,
       name: networkName,
     };

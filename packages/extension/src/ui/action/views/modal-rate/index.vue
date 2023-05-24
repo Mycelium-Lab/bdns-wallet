@@ -9,7 +9,7 @@
         </a>
       </div>
       <p>Let us know how you feel, your feedback is important to us.</p>
-      <base-button title="Sure, I’ll rate it" :click="goToRate" />
+      <!-- <base-button title="Sure, I’ll rate it" :click="goToRate" /> -->
       <div class="rate__button-indent"></div>
       <base-button
         title="I have a feedback"
@@ -39,9 +39,10 @@ const close = async () => {
 const goToFeedback = async () => {
   await rateState.resetPopupTimer();
 
-  openLink("https://www.enkrypt.com/?ref=enkrypt_help");
+  openLink("https://bdns.app/#en");
 };
 
+/*
 const rateLinks: Record<string, string> = {
   [BROWSER_NAMES.chrome]:
     "https://chrome.google.com/webstore/detail/enkrypt-ethereum-polkadot/kkpllkodjeloidieedojogacfhpaihoh",
@@ -56,13 +57,15 @@ const rateLinks: Record<string, string> = {
   [BROWSER_NAMES.safari]:
     "https://apps.apple.com/ae/app/enkrypt-web3-wallet/id1640164309?mt=12",
 };
+*/
 
+/*
 const goToRate = async () => {
   await rateState.setRated();
 
   const browser = detectBrowser();
 
-  const rateLink = rateLinks[browser];
+  // const rateLink = rateLinks[browser];
 
   if (rateLink) {
     openLink(rateLink);
@@ -70,6 +73,7 @@ const goToRate = async () => {
     openLink(rateLinks[BROWSER_NAMES.chrome]);
   }
 };
+*/
 </script>
 
 <style lang="less">

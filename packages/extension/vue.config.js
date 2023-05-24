@@ -6,17 +6,17 @@ module.exports = {
     index: {
       template: "public/index.html",
       entry: "./src/ui/provider-pages/main.ts",
-      title: "enkrypt extension",
+      title: "BDNS extension",
     },
     action: {
       template: "public/index.html",
       entry: "./src/ui/action/main.ts",
-      title: "enkrypt extension popup",
+      title: "BDNS extension popup",
     },
     onboard: {
       template: "public/index.html",
       entry: "./src/ui/onboard/main.ts",
-      title: "enkrypt extension onboard",
+      title: "BDNS extension onboard",
     },
   },
   indexPath: "index.html",

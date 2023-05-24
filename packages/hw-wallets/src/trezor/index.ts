@@ -29,8 +29,8 @@ class TrezorEthereum implements HWWalletProvider {
 
   async init(): Promise<boolean> {
     TrezorConnect.manifest({
-      email: "info@enkrypt.com",
-      appUrl: "https://www.enkrypt.com",
+      email: "contact@bdns.app",
+      appUrl: "https://bdns.app/#en",
     });
     return true;
   }

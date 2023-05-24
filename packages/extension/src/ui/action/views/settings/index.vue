@@ -85,7 +85,7 @@ const resetAction = () => {
 };
 
 const supportAction = () => {
-  window.open("mailto:support@enkrypt.com", "_blank", "noopener");
+  window.open("mailto:contact@bdns.app", "_blank", "noopener");
 };
 
 const generalAction = () => {

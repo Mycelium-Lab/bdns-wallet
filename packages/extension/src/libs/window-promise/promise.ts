@@ -48,7 +48,7 @@ class WindowPromise {
     unlockKeyring = false
   ): Promise<InternalOnMessageResponse> {
     const windowInfo = await Browser.windows.create({
-      url: "/index.html#/enkrypt/loading",
+      url: "/index.html#/bdns/loading",
       type: "popup",
       focused: true,
       height: 600,
