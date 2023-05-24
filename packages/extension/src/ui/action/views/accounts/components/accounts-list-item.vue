@@ -11,7 +11,9 @@
       </p>
       <p class="accounts-item__info-amount">
         {{ $filters.formatFloatingPointValue(amount).value }} {{ symbol }}
-        <span>{{ $filters.replaceWithEllipsis(address, 6, 4) }}</span>
+        <span>{{
+          bdnsName ? bdnsName : $filters.replaceWithEllipsis(address, 6, 4)
+        }}</span>
       </p>
     </div>
     <done-icon
@@ -40,14 +42,18 @@
 import DoneIcon from "@action/icons/common/done_icon.vue";
 import MoreIcon from "@action/icons/common/more-icon.vue";
 import AccountsListItemMenu from "./accounts-list-item-menu.vue";
-import { PropType, ref } from "vue";
+import { PropType, ref, onMounted, watch } from "vue";
 import { onClickOutside } from "@vueuse/core";
+import { BDNS_NAME_QUERY } from "@/apolloClient/graphql";
+import { useQuery, provideApolloClient } from "@vue/apollo-composable";
+import { apolloClient } from "@/apolloClient";
 
+provideApolloClient(apolloClient);
 const openEdit = ref(false);
 const dropdown = ref(null);
 const toggle = ref(null);
 
-defineProps({
+const props = defineProps({
   name: {
     type: String,
     default: "",
@@ -79,6 +85,30 @@ defineProps({
   showEdit: Boolean,
   deletable: Boolean,
 });
+
+onMounted(() => {
+  getBdnsName();
+});
+
+const bdnsName = ref("");
+
+const getBdnsName = () => {
+  const { result, loading, error } = useQuery(
+    BDNS_NAME_QUERY,
+    {
+      resolvedAddress: props.address,
+    },
+    {
+      fetchPolicy: "cache-and-network",
+    }
+  );
+  watch([result, error], ([newResult, newError]) => {
+    console.dir(newResult);
+    if (newResult.domains.length && !newError) {
+      bdnsName.value = newResult.domains[0].name;
+    }
+  });
+};
 
 const toggleEdit = () => {
   openEdit.value = !openEdit.value;

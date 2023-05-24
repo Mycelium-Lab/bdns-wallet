@@ -4,7 +4,9 @@
       <img :src="network.identicon(address)" />
       <div class="account__info-name">
         <p>{{ name }}</p>
-        <span>{{ $filters.replaceWithEllipsis(address, 6, 4) }}</span>
+        <span>{{
+          bdnsName ? bdnsName : $filters.replaceWithEllipsis(address, 6, 4)
+        }}</span>
       </div>
       <switch-arrow />
     </a>
@@ -47,11 +49,21 @@ import IconQr from "@action/icons/header/qr_icon.vue";
 import IconCopy from "@action/icons/header/copy_icon.vue";
 import IconExternal from "@action/icons/header/external-icon.vue";
 import Tooltip from "@action/components/tooltip/index.vue";
-import { PropType, ref, computed } from "vue";
+import { PropType, ref, computed, watch, onMounted } from "vue";
 import Notification from "@action/components/notification/index.vue";
 import { BaseNetwork } from "@/types/base-network";
 
+import { BDNS_NAME_QUERY } from "@/apolloClient/graphql";
+import { useQuery, provideApolloClient } from "@vue/apollo-composable";
+import { apolloClient } from "@/apolloClient";
+
+provideApolloClient(apolloClient);
+
 const isCopied = ref(false);
+
+onMounted(() => {
+  getBdnsName();
+});
 
 const props = defineProps({
   name: {
@@ -75,6 +87,26 @@ const props = defineProps({
 defineEmits<{
   (e: "toggle:deposit"): void;
 }>();
+
+const bdnsName = ref("");
+
+const getBdnsName = () => {
+  const { result, loading, error } = useQuery(
+    BDNS_NAME_QUERY,
+    {
+      resolvedAddress: props.address,
+    },
+    {
+      fetchPolicy: "cache-and-network",
+    }
+  );
+  watch([result, error], ([newResult, newError]) => {
+    console.dir("result", newResult);
+    if (newResult.domains.length && !newError) {
+      bdnsName.value = newResult.domains[0].name;
+    }
+  });
+};
 
 const copy = (address: string) => {
   navigator.clipboard.writeText(address);

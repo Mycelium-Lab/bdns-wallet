@@ -7,7 +7,7 @@ import {
 // HTTP connection to the API
 const httpLink = createHttpLink({
   // You should use an absolute URL here
-  uri: "https://api.thegraph.com/subgraphs/name/limenal/bdns-subgraph",
+  uri: "https://api.thegraph.com/subgraphs/name/juglipaff/bdns-subgraph",
 });
 
 // Cache implementation
